@@ -6,7 +6,7 @@
         Guess
       </span>
     </h1>
-    <h2 class="text-2xl">Whch YouTube video has more views?</h2>
+    <h2 class="text-2xl">Which YouTube video has more views?</h2>
   </div>
 
   <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">Let's Go!</a>
