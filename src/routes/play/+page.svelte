@@ -9,7 +9,9 @@
   import IconCorrect from "~icons/gg/check";
   import IconWrong from "~icons/gg/close";
 
-  const delay = 1500;
+  const delay = 2000;
+  const numberFormatter = new Intl.NumberFormat("en-US");
+  let highScore: number;
 
   let video1: any = null;
   let video2: any = null;
@@ -48,6 +50,10 @@
 
     setTimeout(() => {
       game = "over";
+
+      if (score > (highScore ?? 0)) {
+        localStorage.setItem("highScore", score.toString());
+      }
     }, delay);
   }
 
@@ -87,6 +93,8 @@
 
   onMount(() => {
     setVideos();
+
+    highScore = Number(localStorage.getItem("highScore"));
   });
 </script>
 
@@ -102,6 +110,13 @@
   <main class="flex flex-col gap-4 justify-center items-center h-full bg-neutral text-white" transition:slide>
     <h1 class="text-4xl">Game Over!</h1>
     <h2 class="text-2xl">Your score: <span class="text-youtube">{score}</span></h2>
+    <h2 class="text-2xl">Your high score: <span class="text-youtube">{highScore}</span></h2>
+
+    {#if score > highScore}
+      <h2 class="text-2xl">Your high score: <span class="text-youtube">
+        Nice! You beat your high score!
+      </span></h2>
+    {/if}
 
     <div class="space-x-4">
       <a class="bg-white text-neutral rounded-full px-8 p-2 uppercase text-xl" href="/">Go to menu</a>
@@ -112,12 +127,12 @@
   <main class="h-full flex relative" transition:slide>
     {#if video1}
       <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
-        style:background-image="url('{video1.thumbnails.high.url}')">
+        style:background-image="url('{video1.thumbnails.maxres?.url ?? video1.thumbnails.high?.url ?? video1.thumbnails.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
           <span class="text-4xl block">"{video1.title}"</span>
           has
-          <span class="text-5xl block text-youtube">{video1.views}</span>
+          <span class="text-5xl block text-youtube">{numberFormatter.format(video1.views)}</span>
           total views
         </h1>
       </div>
@@ -139,7 +154,7 @@
 
     {#if video2}
       <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
-        style:background-image="url('{video2.thumbnails.high.url}')">
+        style:background-image="url('{video2.thumbnails.maxres?.url ?? video2.thumbnails.high?.url ?? video2.thumbnails.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
           <span class="text-4xl block">"{video2.title}"</span>
@@ -156,7 +171,7 @@
               </button>
             {/if}
             {#if state !== "choosing"}
-              <h1 id="countUp" class="text-5xl text-youtube">{video2.views}</h1>
+              <h1 id="countUp" class="text-5xl text-youtube">{numberFormatter.format(video2.views)}</h1>
             {/if}
           </span>
           views than {video1.title}
@@ -165,5 +180,6 @@
     {/if}
 
     <p class="absolute left-4 bottom-4 text-white text-xl">Score: {score}</p>
+    <p class="absolute right-4 bottom-4 text-white text-xl">High Score: {highScore}</p>
   </main>
 {/if}
