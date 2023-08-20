@@ -40,8 +40,6 @@
     });
 
     const result = await response.json();
-
-    console.log("Results: ", result);
     return result;
   }
 
@@ -73,16 +71,13 @@
   }
 
   async function choose(choice: -1 | 1) {
-    console.log(video1.views, video2.views);
     if (choice === 1) {
-      console.log("Choice: More");
       if (Number(video2.views) > Number(video1.views)) {
         correct();
       } else {
         wrong();
       }
     } else {
-      console.log("Choice: Less");
       if (Number(video2.views) < Number(video1.views)) {
         correct();
       } else {
