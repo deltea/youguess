@@ -113,7 +113,7 @@
     <h2 class="text-2xl">Your high score: <span class="text-youtube">{highScore}</span></h2>
 
     {#if score > highScore}
-      <h2 class="text-2xl">Your high score: <span class="text-youtube">
+      <h2 class="text-2xl"><span class="text-youtube">
         Nice! You beat your high score!
       </span></h2>
     {/if}
