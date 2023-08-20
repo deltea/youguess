@@ -125,7 +125,7 @@
   <main class="h-full flex relative" transition:slide>
     {#if video1}
       <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
-        style:background-image="url('{video1.thumbnails.maxres?.url ?? video1.thumbnails.high?.url ?? video1.thumbnails.standard?.url}')">
+        style:background-image="url('{video1.thumbnails?.maxres.url ?? video1.thumbnails?.high.url ?? video1.thumbnails?.standard.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
           <span class="text-4xl block">"{video1.title}"</span>
@@ -152,7 +152,7 @@
 
     {#if video2}
       <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
-        style:background-image="url('{video2.thumbnails.maxres?.url ?? video2.thumbnails.high?.url ?? video2.thumbnails.standard?.url}')">
+        style:background-image="url('{video2.thumbnails?.maxres.url ?? video2.thumbnails?.high.url ?? video2.thumbnails?.standard.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
           <span class="text-4xl block">"{video2.title}"</span>
