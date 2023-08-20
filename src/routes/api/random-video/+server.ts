@@ -11,7 +11,6 @@ export const GET: RequestHandler = async () => {
   const randomQuery = generate(random(1, 10)).toString();
 
   const videos = await youtubeSearch.GetListByKeyword(randomQuery, { limit: 1, });
-  // const videos = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&q=${randomQuery}&type=video&key=${YOUTUBE_API_KEY}`);\
   const videoId = videos.items[0].id;
 
   const result = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoId}&maxResults=1&key=${YOUTUBE_API_KEY}`);
