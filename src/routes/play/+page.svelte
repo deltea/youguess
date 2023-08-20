@@ -102,10 +102,13 @@
     <p class="block text-lg">Hang tight...</p>
   </main>
 {:else if game === "over"}
-  <main class="flex flex-col gap-4 justify-center items-center h-full bg-neutral text-white" transition:slide>
+  <main class="flex flex-col gap-8 justify-center items-center h-full bg-neutral text-white" transition:slide>
     <h1 class="text-4xl">Game Over!</h1>
-    <h2 class="text-2xl">Your score: <span class="text-youtube">{score}</span></h2>
-    <h2 class="text-2xl">Your high score: <span class="text-youtube">{highScore}</span></h2>
+
+    <div class="text-center">
+      <h2 class="text-2xl">Your score: <span class="text-youtube">{score}</span></h2>
+      <h2 class="text-2xl">Your high score: <span class="text-youtube">{highScore}</span></h2>
+    </div>
 
     {#if score > highScore}
       <h2 class="text-2xl"><span class="text-youtube">
@@ -165,6 +168,7 @@
                 <IconLess class="inline ml-2" />
               </button>
             {/if}
+
             {#if state !== "choosing"}
               <h1 id="countUp" class="text-5xl text-youtube">{numberFormatter.format(video2.views)}</h1>
             {/if}
