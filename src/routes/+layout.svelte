@@ -1,18 +1,22 @@
 <svelte:head>
   <title>YouGuess</title>
 
-  <meta name="description" content="Which YouTube video has more views?">
-  <meta name="keywords" content="YouTube, Guessing Game">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="title" content="YouGuess" />
+  <meta name="description" content="Which YouTube video has more views?" />
 
-  <meta property="og:title" content="YouGuess">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://youguess.vercel.app">
-  <meta property="og:image" content="/logo.png">
-  <meta property="og:description" content="Which YouTube video has more views?">
-  <meta name="theme-color" content="#FF0000">
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://youguess.vercel.app" />
+  <meta property="og:title" content="YouGuess" />
+  <meta property="og:description" content="Which YouTube video has more views?" />
+  <meta property="og:image" content="/logo.png" />
 
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://youguess.vercel.app" />
+  <meta property="twitter:title" content="YouGuess" />
+  <meta property="twitter:description" content="Which YouTube video has more views?" />
+  <meta property="twitter:image" content="/logo.png" />
 </svelte:head>
 
 <script lang="ts">
