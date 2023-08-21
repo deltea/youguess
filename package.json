@@ -18,11 +18,9 @@
 		"@typescript-eslint/parser": "^5.45.0",
 		"@vercel/analytics": "^1.0.2",
 		"autoprefixer": "^10.4.15",
-		"countup.js": "^2.7.1",
 		"eslint": "^8.28.0",
 		"eslint-plugin-svelte": "^2.30.0",
 		"postcss": "^8.4.28",
-		"puppeteer": "^21.1.0",
 		"random-words": "^2.0.0",
 		"svelte": "^4.0.5",
 		"svelte-check": "^3.4.3",
@@ -31,7 +29,6 @@
 		"typescript": "^5.0.0",
 		"unplugin-icons": "^0.16.5",
 		"vite": "^4.4.2",
-		"youtube-search": "^1.1.6",
 		"youtube-search-api": "^1.2.1"
 	},
 	"type": "module"
