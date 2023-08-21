@@ -1,5 +1,9 @@
 <svelte:head>
   <title>YouGuess</title>
+
+  <meta name="description" content="Which YouTube video has more views?">
+  <meta name="keywords" content="YouTube, Guessing Game">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </svelte:head>
 
 <script lang="ts">
