@@ -128,7 +128,11 @@
         style:background-image="url('{video1.thumbnails?.maxres?.url ?? video1.thumbnails?.high?.url ?? video1.thumbnails?.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
-          <span class="text-4xl block">"{video1.title}"</span>
+          <a href="https://youtube.com/watch?v={video1.videoId}"
+            class="text-4xl block hover:underline"
+            target="_blank">
+            "{video1.title}"
+          </a>
           has
           <span class="text-5xl block text-youtube">{numberFormatter.format(video1.views)}</span>
           total views
@@ -155,7 +159,11 @@
         style:background-image="url('{video2.thumbnails?.maxres?.url ?? video2.thumbnails?.high?.url ?? video2.thumbnails?.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
-          <span class="text-4xl block">"{video2.title}"</span>
+          <a href="https://youtube.com/watch?v={video2.videoId}"
+            class="text-4xl block hover:underline"
+            target="_blank">
+            "{video2.title}"
+          </a>
           has
           <span class="text-xl text-youtube flex flex-col my-4 gap-1">
             {#if state === "choosing"}
@@ -173,7 +181,7 @@
               <h1 id="countUp" class="text-5xl text-youtube">{numberFormatter.format(video2.views)}</h1>
             {/if}
           </span>
-          views than {video1.title}
+          total views
         </h1>
       </div>
     {/if}

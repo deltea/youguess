@@ -30,6 +30,7 @@ export const GET: RequestHandler = async () => {
   return json({
     title,
     views,
-    thumbnails
+    thumbnails,
+    videoId,
   });
 }
