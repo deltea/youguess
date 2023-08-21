@@ -116,7 +116,7 @@
       </span></h2>
     {/if}
 
-    <div class="space-x-4">
+    <div class="space-x-2">
       <a class="bg-white text-neutral rounded-full px-8 p-2 uppercase text-xl" href="/">Go to menu</a>
       <button class="bg-youtube text-white rounded-full px-8 p-2 uppercase text-xl" on:click={() => location.href = "/play"}>Play again?</button>
     </div>

@@ -7,11 +7,18 @@ function random(min: number, max: number) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
-export const GET: RequestHandler = async () => {
-  const randomQuery = generate(random(1, 10)).toString();
-
+async function randomVideoId(): Promise<string> {
+  const randomQuery = generate(random(1, 10)).join(" ");
   const videos = await youtubeSearch.GetListByKeyword(randomQuery, false, 1);
   const videoId = videos.items[0].id;
+
+  if (!videos || videos.length === 0 || videoId.length !== 11) return await randomVideoId();
+
+  return videoId;
+}
+
+export const GET: RequestHandler = async () => {
+  const videoId = await randomVideoId();
 
   const result = await fetch(`https://youtube.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoId}&maxResults=1&key=${YOUTUBE_API_KEY}`);
 
