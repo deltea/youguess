@@ -44,13 +44,16 @@
     {#if username}
       <h1>Hello, {username}!</h1>
     {:else}
-      <form class="flex flex-col items-stretch" on:submit|preventDefault={addUser}>
+      <form class="flex flex-col items-stretch gap-2" on:submit|preventDefault={addUser}>
         <label for="username">Enter a username to join the leaderboard!</label>
         <input
           type="text"
           id="username"
           placeholder="Username..."
           bind:value={usernameInput}>
+        <button type="submit" class="bg-youtube text-white rounded-lg">
+          Submit
+        </button>
       </form>
     {/if}
 
