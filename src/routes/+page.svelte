@@ -1,13 +1,46 @@
-<main class="bg-white h-full text-neutral flex flex-col justify-center items-center gap-16">
-  <div class="text-center space-y-4">
-    <h1 class="text-6xl font-bold">
-      You
-      <span class="text-white bg-youtube px-2 rounded-2xl -ml-2">
-        Guess
-      </span>
-    </h1>
-    <h2 class="text-2xl">Which YouTube video has more views?</h2>
-  </div>
+<script lang="ts">
+  import type { PageData } from "./$types";
 
-  <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">Let's Go!</a>
+  import IconTrophy from "~icons/gg/trophy";
+
+  export let data: PageData;
+</script>
+
+<main class="bg-white h-full text-neutral">
+  <section class="inline-flex flex-col justify-center items-center gap-8 h-full w-1/2">
+    <div class="text-center space-y-4">
+      <h1 class="text-6xl font-bold">
+        You
+        <span class="text-white bg-youtube px-2 rounded-2xl -ml-2">
+          Guess
+        </span>
+      </h1>
+      <h2 class="text-2xl">Which YouTube video has more views?</h2>
+    </div>
+
+    <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">Let's Go!</a>
+  </section>
+
+  <section class="inline-flex flex-col justify-center h-full w-1/2 float-right p-8 gap-4">
+    <h1 class="text-3xl">Leaderboard</h1>
+    <ul class="bg-neutral rounded-lg w-full h-full">
+      {#each data.leaderboard as leader, i}
+        <li class="w-full flex odd:bg-youtube text-white p-2 px-4 justify-between rounded-lg">
+          <div class="flex items-center gap-2">
+            {#if i === 0}
+              <div class="text-xl">
+                <IconTrophy />
+              </div>
+            {/if}
+
+            <h2 class="font-bold">
+              {leader.name}
+            </h2>
+          </div>
+
+          <h2>{leader.score}</h2>
+        </li>
+      {/each}
+    </ul>
+  </section>
 </main>
