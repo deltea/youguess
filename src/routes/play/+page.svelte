@@ -43,14 +43,30 @@
     return result;
   }
 
+  async function setHighScore() {
+    localStorage.setItem("highScore", score.toString());
+
+    const username = localStorage.getItem("username");
+
+    if (!username) return;
+
+    await fetch("/api/update-score", {
+      method: "POST",
+      body: JSON.stringify({ username, score }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   function wrong() {
     state = "incorrect";
 
-    setTimeout(() => {
+    setTimeout(async () => {
       game = "over";
 
       if (score > (highScore ?? 0)) {
-        localStorage.setItem("highScore", score.toString());
+        await setHighScore();
       }
     }, delay);
   }

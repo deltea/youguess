@@ -1,10 +1,32 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import type { PageData } from "./$types";
 
   import IconTrophy from "~icons/gg/trophy";
 
   export let data: PageData;
-  
+
+  let username: string | null;
+  let usernameInput: string;
+
+  async function addUser() {
+    if (!usernameInput) return;
+
+    localStorage.setItem("username", usernameInput);
+    username = usernameInput;
+
+    await fetch("/api/new-user", {
+      method: "POST",
+      body: JSON.stringify({ username }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
+  onMount(() => {
+    username = localStorage.getItem("username");
+  });
 </script>
 
 <main class="bg-white h-full text-neutral">
@@ -19,7 +41,22 @@
       <h2 class="text-2xl">Which YouTube video has more views?</h2>
     </div>
 
-    <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">Let's Go!</a>
+    {#if username}
+      <h1>Hello, {username}!</h1>
+    {:else}
+      <form class="flex flex-col items-stretch" on:submit|preventDefault={addUser}>
+        <label for="username">Enter a username to join the leaderboard!</label>
+        <input
+          type="text"
+          id="username"
+          placeholder="Username..."
+          bind:value={usernameInput}>
+      </form>
+    {/if}
+
+    <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">
+      Let's Go!
+    </a>
   </section>
 
   <section class="inline-flex flex-col justify-center h-full w-3/6 float-right p-8 gap-4">
