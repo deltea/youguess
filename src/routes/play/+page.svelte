@@ -209,7 +209,7 @@
               <h1 id="countUp" class="text-5xl text-youtube text-center w-full">
                 {numberFormatter.format(video2.views)}
               </h1>
-            {/if}e
+            {/if}
           </span>
           <span class="hidden lg:block">total views</span>
         </h1>
