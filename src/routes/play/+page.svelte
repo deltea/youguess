@@ -150,14 +150,14 @@
 
 <!-- Game -->
 {:else}
-  <main class="h-full flex md:flex-row flex-col relative" transition:slide>
+  <main class="h-full flex lg:flex-row flex-col relative" transition:slide>
     {#if video1}
-      <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
+      <div class="bg-cover bg-center lg:h-full lg:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video1.thumbnails?.maxres?.url ?? video1.thumbnails?.high?.url ?? video1.thumbnails?.standard?.url}')">
-        <h1 class="text-xl md:w-2/3 w-4/5">
+        <h1 class="text-xl lg:w-2/3 w-4/5">
           The YouTube video
           <a href="https://youtube.com/watch?v={video1.videoId}"
-            class="md:text-4xl text-2xl font-semibold block hover:underline"
+            class="lg:text-4xl text-2xl font-semibold block hover:underline"
             target="_blank">
             "{video1.title}"
           </a>
@@ -169,31 +169,31 @@
     {/if}
 
     {#if state === "choosing"}
-      <div class="bg-youtube text-white md:p-8 p-4 md:text-4xl text-2xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-youtube text-white lg:p-8 p-4 lg:text-4xl text-2xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         VS
       </div>
     {:else if state === "correct"}
-      <div class="bg-green-500 text-white md:p-8 p-4 md:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-green-500 text-white lg:p-8 p-4 lg:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         <IconCorrect />
       </div>
     {:else}
-      <div class="bg-neutral text-white md:p-8 p-4 md:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-neutral text-white lg:p-8 p-4 lg:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         <IconWrong />
       </div>
     {/if}
 
     {#if video2}
-      <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
+      <div class="bg-cover bg-center lg:h-full lg:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video2.thumbnails?.maxres?.url ?? video2.thumbnails?.high?.url ?? video2.thumbnails?.standard?.url}')">
-        <h1 class="text-xl md:w-2/3 w-4/5">
+        <h1 class="text-xl lg:w-2/3 w-4/5">
           The YouTube video
           <a href="https://youtube.com/watch?v={video2.videoId}"
-            class="md:text-4xl text-2xl font-semibold block hover:underline"
+            class="lg:text-4xl text-2xl font-semibold block hover:underline"
             target="_blank">
             "{video2.title}"
           </a>
           has
-          <span class="text-xl text-youtube flex md:flex-col my-4 gap-1">
+          <span class="text-xl text-youtube flex lg:flex-col my-4 gap-1">
             {#if state === "choosing"}
               <button class="uppercase bg-youtube text-white rounded-full py-2 btn w-full" on:click={() => choose(1)}>
                 More
@@ -206,15 +206,17 @@
             {/if}
 
             {#if state !== "choosing"}
-              <h1 id="countUp" class="text-5xl text-youtube">{numberFormatter.format(video2.views)}</h1>
-            {/if}
+              <h1 id="countUp" class="text-5xl text-youtube text-center w-full">
+                {numberFormatter.format(video2.views)}
+              </h1>
+            {/if}e
           </span>
-          <span class="hidden md:block">total views</span>
+          <span class="hidden lg:block">total views</span>
         </h1>
       </div>
     {/if}
 
-    <p class="absolute md:left-8 left-4 md:bottom-4 md:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center">Score: {score}</p>
-    <p class="absolute md:right-8 right-4 md:bottom-4 md:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center">High Score: {highScore}</p>
+    <p class="absolute lg:left-8 left-0 lg:bottom-4 lg:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center lg:w-auto w-[45vw]">Score: {score}</p>
+    <p class="absolute lg:right-8 right-0 lg:bottom-4 lg:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center lg:w-auto w-[45vw]">High Score: {highScore}</p>
   </main>
 {/if}

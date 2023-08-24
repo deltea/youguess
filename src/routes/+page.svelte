@@ -29,8 +29,8 @@
   });
 </script>
 
-<main class="bg-white h-full text-neutral">
-  <section class="inline-flex flex-col justify-center items-center gap-8 h-full w-3/6">
+<main class="bg-white h-full text-neutral p-4">
+  <section class="inline-flex flex-col justify-center items-center gap-8 h-full lg:w-3/6 w-full">
     <div class="text-center space-y-4">
       <h1 class="text-6xl font-bold">
         You
@@ -45,7 +45,7 @@
       <h1>Hello, {username}!</h1>
     {:else}
       <form class="flex flex-col items-stretch gap-2" on:submit|preventDefault={addUser}>
-        <label for="username">Enter a username to join the leaderboard!</label>
+        <label for="username">Enter a username to compete in the leaderboard!</label>
         <input
           type="text"
           id="username"
@@ -62,7 +62,7 @@
     </a>
   </section>
 
-  <section class="inline-flex flex-col justify-center h-full w-3/6 float-right p-8 gap-4">
+  <section class="inline-flex flex-col justify-center h-full lg:w-3/6 w-full float-right p-8 gap-4">
     <h1 class="text-3xl">Leaderboard</h1>
     <ul class="bg-neutral rounded-lg w-full h-full">
       {#each data.leaderboard as leader, i}
