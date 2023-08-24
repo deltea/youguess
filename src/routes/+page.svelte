@@ -54,7 +54,7 @@
       </form>
     {/if}
 
-    <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">
+    <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl btn">
       Let's Go!
     </a>
   </section>

@@ -109,6 +109,7 @@
   });
 </script>
 
+<!-- Loading Videos -->
 {#if game === "loading"}
   <main class="flex flex-col gap-4 justify-center items-center h-full bg-youtube text-white" transition:slide>
     <div class="flex gap-4 items-center">
@@ -117,6 +118,8 @@
     </div>
     <p class="block text-lg">Hang tight...</p>
   </main>
+
+<!-- Game Over -->
 {:else if game === "over"}
   <main class="flex flex-col gap-8 justify-center items-center h-full bg-neutral text-white" transition:slide>
     <h1 class="text-4xl">Game Over!</h1>
@@ -133,10 +136,19 @@
     {/if}
 
     <div class="space-x-2">
-      <a class="bg-white text-neutral rounded-full px-8 p-2 uppercase text-xl" href="/">Go to menu</a>
-      <button class="bg-youtube text-white rounded-full px-8 p-2 uppercase text-xl" on:click={() => location.href = "/play"}>Play again?</button>
+      <a href="/" class="bg-white text-neutral rounded-full px-8 p-2 uppercase text-xl btn">
+        Go to menu
+      </a>
+
+      <button
+        class="bg-youtube text-white rounded-full px-8 p-2 uppercase text-xl btn"
+        on:click={() => location.reload()}>
+        Play again?
+      </button>
     </div>
   </main>
+
+<!-- Game -->
 {:else}
   <main class="h-full flex relative" transition:slide>
     {#if video1}
@@ -183,11 +195,11 @@
           has
           <span class="text-xl text-youtube flex flex-col my-4 gap-1">
             {#if state === "choosing"}
-              <button class="uppercase bg-youtube text-white rounded-full py-2" on:click={() => choose(1)}>
+              <button class="uppercase bg-youtube text-white rounded-full py-2 btn" on:click={() => choose(1)}>
                 More
                 <IconMore class="inline ml-2" />
               </button>
-              <button class="uppercase bg-neutral text-white rounded-full py-2" on:click={() => choose(-1)}>
+              <button class="uppercase bg-neutral text-white rounded-full py-2 btn" on:click={() => choose(-1)}>
                 Less
                 <IconLess class="inline ml-2" />
               </button>

@@ -6,3 +6,9 @@
   font-family: YoutubeSans;
   src: url(/fonts/YoutubeSans.ttf);
 }
+
+@layer components {
+  .btn {
+    @apply hover:scale-105 active:scale-95 duration-100;
+  }
+}
