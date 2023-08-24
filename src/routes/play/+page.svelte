@@ -150,9 +150,9 @@
 
 <!-- Game -->
 {:else}
-  <main class="h-full flex relative" transition:slide>
+  <main class="h-full flex md:flex-row flex-col relative" transition:slide>
     {#if video1}
-      <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
+      <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video1.thumbnails?.maxres?.url ?? video1.thumbnails?.high?.url ?? video1.thumbnails?.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
@@ -169,7 +169,7 @@
     {/if}
 
     {#if state === "choosing"}
-      <div class="bg-youtube text-white p-8 text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-youtube text-white md:p-8 p-4 md:text-4xl text-2xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         VS
       </div>
     {:else if state === "correct"}
@@ -183,7 +183,7 @@
     {/if}
 
     {#if video2}
-      <div class="bg-cover bg-center h-full w-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
+      <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video2.thumbnails?.maxres?.url ?? video2.thumbnails?.high?.url ?? video2.thumbnails?.standard?.url}')">
         <h1 class="text-xl w-2/3">
           The YouTube video
@@ -193,13 +193,13 @@
             "{video2.title}"
           </a>
           has
-          <span class="text-xl text-youtube flex flex-col my-4 gap-1">
+          <span class="text-xl text-youtube flex md:flex-col my-4 gap-1">
             {#if state === "choosing"}
-              <button class="uppercase bg-youtube text-white rounded-full py-2 btn" on:click={() => choose(1)}>
+              <button class="uppercase bg-youtube text-white rounded-full py-2 btn w-full" on:click={() => choose(1)}>
                 More
                 <IconMore class="inline ml-2" />
               </button>
-              <button class="uppercase bg-neutral text-white rounded-full py-2 btn" on:click={() => choose(-1)}>
+              <button class="uppercase bg-neutral text-white rounded-full py-2 btn w-full" on:click={() => choose(-1)}>
                 Less
                 <IconLess class="inline ml-2" />
               </button>
