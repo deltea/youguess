@@ -4,10 +4,11 @@
   import IconTrophy from "~icons/gg/trophy";
 
   export let data: PageData;
+  
 </script>
 
 <main class="bg-white h-full text-neutral">
-  <section class="inline-flex flex-col justify-center items-center gap-8 h-full w-1/2">
+  <section class="inline-flex flex-col justify-center items-center gap-8 h-full w-3/6">
     <div class="text-center space-y-4">
       <h1 class="text-6xl font-bold">
         You
@@ -21,7 +22,7 @@
     <a href="/play" class="bg-youtube text-white rounded-full px-16 p-2 uppercase text-xl">Let's Go!</a>
   </section>
 
-  <section class="inline-flex flex-col justify-center h-full w-1/2 float-right p-8 gap-4">
+  <section class="inline-flex flex-col justify-center h-full w-3/6 float-right p-8 gap-4">
     <h1 class="text-3xl">Leaderboard</h1>
     <ul class="bg-neutral rounded-lg w-full h-full">
       {#each data.leaderboard as leader, i}
