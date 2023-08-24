@@ -154,10 +154,10 @@
     {#if video1}
       <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video1.thumbnails?.maxres?.url ?? video1.thumbnails?.high?.url ?? video1.thumbnails?.standard?.url}')">
-        <h1 class="text-xl w-2/3">
+        <h1 class="text-xl md:w-2/3 w-4/5">
           The YouTube video
           <a href="https://youtube.com/watch?v={video1.videoId}"
-            class="text-4xl block hover:underline"
+            class="md:text-4xl text-2xl font-semibold block hover:underline"
             target="_blank">
             "{video1.title}"
           </a>
@@ -173,11 +173,11 @@
         VS
       </div>
     {:else if state === "correct"}
-      <div class="bg-green-500 text-white p-8 text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-green-500 text-white md:p-8 p-4 md:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         <IconCorrect />
       </div>
     {:else}
-      <div class="bg-neutral text-white p-8 text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
+      <div class="bg-neutral text-white md:p-8 p-4 md:text-4xl text-4xl rounded-full absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center" transition:scale>
         <IconWrong />
       </div>
     {/if}
@@ -185,10 +185,10 @@
     {#if video2}
       <div class="bg-cover bg-center md:h-full md:w-1/2 h-1/2 inline-flex justify-center items-center text-white text-center bg-gray-500 bg-blend-multiply"
         style:background-image="url('{video2.thumbnails?.maxres?.url ?? video2.thumbnails?.high?.url ?? video2.thumbnails?.standard?.url}')">
-        <h1 class="text-xl w-2/3">
+        <h1 class="text-xl md:w-2/3 w-4/5">
           The YouTube video
           <a href="https://youtube.com/watch?v={video2.videoId}"
-            class="text-4xl block hover:underline"
+            class="md:text-4xl text-2xl font-semibold block hover:underline"
             target="_blank">
             "{video2.title}"
           </a>
@@ -209,12 +209,12 @@
               <h1 id="countUp" class="text-5xl text-youtube">{numberFormatter.format(video2.views)}</h1>
             {/if}
           </span>
-          total views
+          <span class="hidden md:block">total views</span>
         </h1>
       </div>
     {/if}
 
-    <p class="absolute left-4 bottom-4 text-white text-xl">Score: {score}</p>
-    <p class="absolute right-4 bottom-4 text-white text-xl">High Score: {highScore}</p>
+    <p class="absolute md:left-8 left-4 md:bottom-4 md:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center">Score: {score}</p>
+    <p class="absolute md:right-8 right-4 md:bottom-4 md:top-auto top-1/2 -translate-y-1/2 text-white text-xl text-center">High Score: {highScore}</p>
   </main>
 {/if}
